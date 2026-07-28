@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>ROVO — Building the Future of Lacrosse Goalie Equipment</title>
+<meta name="description" content="ROVO is building next-generation lacrosse goalie equipment, engineered by goalies who know the pain points firsthand. Join the list for launch news.">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Crect width='100' height='100' fill='%230a0c0f'/%3E%3Ctext x='50' y='68' font-family='Arial' font-weight='900' font-size='60' fill='%23ffffff' text-anchor='middle'%3ER%3C/text%3E%3C/svg%3E">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Rajdhani:wght@500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+<!-- ============ LOGO ============ -->
+<header class="nav">
+  <a href="#top" class="nav__brand">
+    <img src="assets/images/rovo_wordmark.png" alt="ROVO" class="nav__logo">
+  </a>
+  <a href="#request" class="nav__cta">Request a Product</a>
+</header>
+
+<main id="top">
+
+  <!-- ============ HERO ============ -->
+  <section class="hero">
+    <div class="hero__bg" aria-hidden="true"></div>
+    <div class="hero__grid" aria-hidden="true"></div>
+    <div class="hero__scan" aria-hidden="true"></div>
+
+    <div class="hero__content">
+      <p class="eyebrow hero__eyebrow reveal">NEXT-GEN LACROSSE GOALIE EQUIPMENT</p>
+      <h1 class="hero__title reveal" style="--d:1">
+        BUILDING THE FUTURE OF<br>
+        <span class="hero__title--accent">LACROSSE GOALIE EQUIPMENT.</span>
+      </h1>
+      <p class="hero__mission reveal" style="--d:2">
+        Built by lacrosse goalies themselves — the ones who actually know the pain points
+        of the position. We're just getting started.
+      </p>
+      <div class="hero__actions reveal" style="--d:3">
+        <a href="#join" class="btn btn--primary">Join the List</a>
+        <a href="#request" class="btn btn--ghost">Request a Product</a>
+      </div>
+    </div>
+
+    <div class="hero__scrollcue" aria-hidden="true">
+      <span>SCROLL</span>
+      <div class="hero__scrollcue-line"></div>
+    </div>
+  </section>
+
+  <!-- ============ MARQUEE STRIP ============ -->
+  <div class="marquee">
+    <div class="marquee__track">
+      <span>BUILT BY GOALIES</span><span>·</span>
+      <span>FOR GOALIES</span><span>·</span>
+      <span>NEXT-GEN EQUIPMENT</span><span>·</span>
+      <span>COMING SOON</span><span>·</span>
+      <span>BUILT BY GOALIES</span><span>·</span>
+      <span>FOR GOALIES</span><span>·</span>
+      <span>NEXT-GEN EQUIPMENT</span><span>·</span>
+      <span>COMING SOON</span><span>·</span>
+    </div>
+  </div>
+
+  <!-- ============ JOIN THE LIST ============ -->
+  <section class="join" id="join">
+    <div class="join__inner">
+      <p class="eyebrow">STAY LOCKED IN</p>
+      <h2>Be the First to Know.</h2>
+      <p class="join__sub">
+        Drop your info below to stay updated on news and new equipment as we build it.
+        No spam — just launches, drops, and early access.
+      </p>
+
+      <form id="joinForm" class="signup-form">
+        <div class="signup-form__row">
+          <input type="text" name="name" id="joinName" placeholder="Full name" required autocomplete="name">
+          <input type="email" name="email" id="joinEmail" placeholder="Email address" required autocomplete="email">
+          <input type="tel" name="phone" id="joinPhone" placeholder="Phone number" required autocomplete="tel">
+        </div>
+        <button type="submit" id="joinSubmit"><span>Notify Me</span></button>
+      </form>
+      <p class="signup-form__status" id="joinStatus"></p>
+    </div>
+  </section>
+
+  <!-- ============ REQUEST A PRODUCT ============ -->
+  <section class="request" id="request">
+    <div class="request__inner">
+      <p class="eyebrow">TELL US WHAT YOU NEED</p>
+      <h2>Request a Product.</h2>
+      <p class="request__sub">
+        Struggling with a piece of gear? Something missing from your bag? Tell us what
+        you're dealing with — we're goalies building for goalies, and we want to build it.
+      </p>
+
+      <form id="requestForm" class="signup-form signup-form--stacked">
+        <div class="signup-form__row">
+          <input type="text" name="name" id="reqName" placeholder="Full name" required autocomplete="name">
+          <input type="email" name="email" id="reqEmail" placeholder="Email address" required autocomplete="email">
+        </div>
+        <textarea name="message" id="reqMessage" placeholder="What do you need? Tell us the problem you're trying to solve..." rows="4" required></textarea>
+        <button type="submit" id="reqSubmit"><span>Send Request</span></button>
+      </form>
+      <p class="signup-form__status" id="reqStatus"></p>
+    </div>
+  </section>
+
+  <!-- ============ FOOTER ============ -->
+  <footer class="footer">
+    <img src="assets/images/rovo_wordmark.png" alt="ROVO" class="footer__logo">
+    <span>© <span id="year"></span> ROVO Sports. All rights reserved.</span>
+  </footer>
+
+</main>
+
+<script src="config.js"></script>
+<script src="script.js"></script>
+</body>
+</html>
