@@ -4,6 +4,20 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
+<!-- Always start at the top of the page: strip any URL hash (e.g. a link
+     shared with #join in it) before the browser can resolve/scroll to it,
+     and disable scroll-position restoration on back/forward nav. Must run
+     here, before <body> exists, otherwise the browser's native fragment
+     scroll can beat any later JS fix to the punch. -->
+<script>
+(function () {
+  if (window.location.hash) {
+    history.replaceState(null, '', window.location.pathname + window.location.search);
+  }
+  if ('scrollRestoration' in history) { history.scrollRestoration = 'manual'; }
+})();
+</script>
+
 <!-- Google tag (gtag.js) -->
 <script async src="https://www.googletagmanager.com/gtag/js?id=G-G02ZZ0PW9D"></script>
 <script>

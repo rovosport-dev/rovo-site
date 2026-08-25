@@ -328,7 +328,7 @@ button{ font-family:inherit; cursor:pointer; }
 .signup-form input,
 .signup-form textarea{
   flex:1; min-width:180px; background:var(--panel); border:1px solid var(--panel-line);
-  color:var(--ink); padding:16px 18px; font-family:var(--font-body); font-size:14px;
+  color:var(--ink); padding:16px 18px; font-family:var(--font-body); font-size:16px;
   border-radius:var(--radius); outline:none; transition:border-color .25s, box-shadow .25s;
   resize:vertical;
 }
@@ -367,7 +367,7 @@ button{ font-family:inherit; cursor:pointer; }
 }
 .quick-form input{
   flex:1; min-width:220px; background:var(--panel); border:1px solid var(--panel-line);
-  color:var(--ink); padding:15px 18px; font-family:var(--font-body); font-size:14px;
+  color:var(--ink); padding:15px 18px; font-family:var(--font-body); font-size:16px;
   border-radius:var(--radius); outline:none; transition:border-color .25s, box-shadow .25s;
 }
 .quick-form input::placeholder{ color:var(--ink-faint); }

@@ -4,6 +4,20 @@
   var CONFIG = window.ROVO_CONFIG || {};
 
   /* ---------------------------------------------------------------------
+     Always start at the top of the page.
+     Prevents two real-world causes of landing mid-page: the browser
+     restoring a previous scroll position (bfcache / tab restore), and any
+     URL hash (e.g. a link shared with #join in it) auto-jumping on load.
+     --------------------------------------------------------------------- */
+  if ("scrollRestoration" in history) {
+    history.scrollRestoration = "manual";
+  }
+  window.scrollTo(0, 0);
+  window.addEventListener("pageshow", function () {
+    window.scrollTo(0, 0);
+  });
+
+  /* ---------------------------------------------------------------------
      Footer year
      --------------------------------------------------------------------- */
   var yearEl = document.getElementById("year");
@@ -202,13 +216,17 @@
       });
     }
 
-    // Trigger once the visitor has scrolled roughly halfway down the page —
-    // the sweet spot for single-page sites without feeling like an ambush.
+    // Trigger once the visitor has scrolled past the "Our Story" section —
+    // opens wherever they currently are on the page, never scrolls them
+    // anywhere. Not a fixed page-percentage, so it holds up regardless of
+    // how long the page is or which section content changes later.
     var popupTriggered = false;
+    var storySection = document.getElementById("story");
     window.addEventListener("scroll", function () {
       if (popupTriggered || hasSeenPopup() || hasCapturedLead()) return;
-      var scrollDepth = (window.scrollY + window.innerHeight) / document.documentElement.scrollHeight;
-      if (scrollDepth > 0.5) {
+      if (!storySection) return;
+      var storyBottom = storySection.getBoundingClientRect().bottom;
+      if (storyBottom < 0) {
         popupTriggered = true;
         openPopup();
       }
