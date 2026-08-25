@@ -102,7 +102,7 @@
       var name = document.getElementById("joinName").value.trim();
       var email = document.getElementById("joinEmail").value.trim();
       var phone = document.getElementById("joinPhone").value.trim();
-      if (!name || !email || !phone) return;
+      if (!name || !email) return;
 
       submitToSheet(
         "newsletter",
@@ -112,6 +112,133 @@
         function () { joinForm.reset(); }
       );
     });
+  }
+
+  /* ---------------------------------------------------------------------
+     Hero quick-capture form (email only — fastest possible path)
+     --------------------------------------------------------------------- */
+  var heroForm = document.getElementById("heroQuickForm");
+  if (heroForm) {
+    heroForm.addEventListener("submit", function (e) {
+      e.preventDefault();
+      var email = document.getElementById("heroEmail").value.trim();
+      if (!email) return;
+
+      submitToSheet(
+        "newsletter",
+        { name: "", email: email, phone: "" },
+        document.getElementById("heroStatus"),
+        document.getElementById("heroSubmit"),
+        function () {
+          heroForm.reset();
+          markLeadCaptured();
+        }
+      );
+    });
+  }
+
+  /* ---------------------------------------------------------------------
+     Scroll-triggered popup
+     --------------------------------------------------------------------- */
+  var popupOverlay = document.getElementById("popupOverlay");
+  var popupForm = document.getElementById("popupForm");
+  var popupClose = document.getElementById("popupClose");
+  var popupShownKey = "rovo_popup_shown";
+  var leadCapturedKey = "rovo_lead_captured";
+
+  function markLeadCaptured() {
+    try { sessionStorage.setItem(leadCapturedKey, "1"); } catch (err) {}
+  }
+  function hasCapturedLead() {
+    try { return sessionStorage.getItem(leadCapturedKey) === "1"; } catch (err) { return false; }
+  }
+  function hasSeenPopup() {
+    try { return sessionStorage.getItem(popupShownKey) === "1"; } catch (err) { return false; }
+  }
+  function markPopupShown() {
+    try { sessionStorage.setItem(popupShownKey, "1"); } catch (err) {}
+  }
+
+  function openPopup() {
+    if (!popupOverlay || hasSeenPopup() || hasCapturedLead()) return;
+    popupOverlay.classList.add("is-open");
+    popupOverlay.setAttribute("aria-hidden", "false");
+    markPopupShown();
+  }
+  function closePopup() {
+    if (!popupOverlay) return;
+    popupOverlay.classList.remove("is-open");
+    popupOverlay.setAttribute("aria-hidden", "true");
+  }
+
+  if (popupOverlay) {
+    if (popupClose) popupClose.addEventListener("click", closePopup);
+    popupOverlay.addEventListener("click", function (e) {
+      if (e.target === popupOverlay) closePopup();
+    });
+    document.addEventListener("keydown", function (e) {
+      if (e.key === "Escape") closePopup();
+    });
+
+    if (popupForm) {
+      popupForm.addEventListener("submit", function (e) {
+        e.preventDefault();
+        var name = document.getElementById("popupName").value.trim();
+        var email = document.getElementById("popupEmail").value.trim();
+        var phone = document.getElementById("popupPhone").value.trim();
+        if (!email) return;
+
+        submitToSheet(
+          "newsletter",
+          { name: name, email: email, phone: phone },
+          document.getElementById("popupStatus"),
+          document.getElementById("popupSubmit"),
+          function () {
+            markLeadCaptured();
+            popupForm.reset();
+            setTimeout(closePopup, 900);
+          }
+        );
+      });
+    }
+
+    // Trigger once the visitor has scrolled roughly halfway down the page —
+    // the sweet spot for single-page sites without feeling like an ambush.
+    var popupTriggered = false;
+    window.addEventListener("scroll", function () {
+      if (popupTriggered || hasSeenPopup() || hasCapturedLead()) return;
+      var scrollDepth = (window.scrollY + window.innerHeight) / document.documentElement.scrollHeight;
+      if (scrollDepth > 0.5) {
+        popupTriggered = true;
+        openPopup();
+      }
+    }, { passive: true });
+  }
+
+  /* ---------------------------------------------------------------------
+     Sticky mobile CTA — appears once the visitor scrolls past the hero,
+     and hides again once the real "Join the List" form is on screen so it
+     never floats on top of that form (or the Request/footer sections below it).
+     --------------------------------------------------------------------- */
+  var stickyCta = document.getElementById("stickyCta");
+  var heroSection = document.querySelector(".hero");
+  var joinSection = document.getElementById("join");
+  if (stickyCta && heroSection && joinSection) {
+    window.addEventListener("scroll", function () {
+      var heroBottom = heroSection.getBoundingClientRect().bottom;
+      var joinTop = joinSection.getBoundingClientRect().top;
+      var pastHero = heroBottom < 0;
+      // Only hide once Join's top edge is actually about to be covered by the
+      // bar itself (roughly its own height + a little breathing room) — not
+      // simply "Join is somewhere within the next viewport," which hid the
+      // bar almost immediately on shorter mobile layouts.
+      var reachedJoin = joinTop < 140;
+      if (pastHero && !reachedJoin) {
+        stickyCta.classList.add("is-visible");
+      } else {
+        stickyCta.classList.remove("is-visible");
+      }
+    }, { passive: true });
   }
 
   /* ---------------------------------------------------------------------

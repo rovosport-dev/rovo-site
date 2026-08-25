@@ -43,7 +43,7 @@ gtag('config', 'G-G02ZZ0PW9D');
   <a href="#top" class="nav__brand">
     <img src="assets/images/rovo_wordmark.png" alt="ROVO" class="nav__logo">
   </a>
-  <a href="#request" class="nav__cta">Request a Product</a>
+  <a href="#join" class="nav__cta">Join the List</a>
 </header>
 
 <main id="top">
@@ -63,11 +63,18 @@ gtag('config', 'G-G02ZZ0PW9D');
       </h1>
       <p class="hero__mission reveal" style="--d:2">
         Built by lacrosse goalies themselves — the ones who actually know the pain points
-        of the position. We're just getting started.
+        of the position. Be first in line when we launch.
       </p>
-      <div class="hero__actions reveal" style="--d:3">
-        <a href="#join" class="btn btn--primary">Join the List</a>
-        <a href="#request" class="btn btn--ghost">Request a Product</a>
+
+      <form id="heroQuickForm" class="quick-form reveal" style="--d:3" novalidate>
+        <input type="email" name="email" id="heroEmail" placeholder="Enter your email" required autocomplete="email" inputmode="email">
+        <button type="submit" id="heroSubmit"><span>Notify Me</span></button>
+      </form>
+      <p class="quick-form__hint reveal" style="--d:3">Takes 5 seconds. No spam — just launch news.</p>
+      <p class="quick-form__status" id="heroStatus"></p>
+
+      <div class="hero__actions reveal" style="--d:4">
+        <a href="#request" class="hero__secondary-link">Have a product request instead? →</a>
       </div>
     </div>
 
@@ -84,10 +91,16 @@ gtag('config', 'G-G02ZZ0PW9D');
       <span class="marquee__item marquee__item--2">FOR GOALIES</span><span class="marquee__dot">·</span>
       <span class="marquee__item marquee__item--3">NEXT-GEN EQUIPMENT</span><span class="marquee__dot">·</span>
       <span class="marquee__item marquee__item--4">COMING SOON</span><span class="marquee__dot">·</span>
+      <span class="marquee__item marquee__item--1">HIGHEST QUALITY</span><span class="marquee__dot">·</span>
+      <span class="marquee__item marquee__item--2">MOST PROTECTIVE</span><span class="marquee__dot">·</span>
+      <span class="marquee__item marquee__item--3">LIGHT WEIGHT</span><span class="marquee__dot">·</span>
       <span class="marquee__item marquee__item--1">BUILT BY GOALIES</span><span class="marquee__dot">·</span>
       <span class="marquee__item marquee__item--2">FOR GOALIES</span><span class="marquee__dot">·</span>
       <span class="marquee__item marquee__item--3">NEXT-GEN EQUIPMENT</span><span class="marquee__dot">·</span>
       <span class="marquee__item marquee__item--4">COMING SOON</span><span class="marquee__dot">·</span>
+      <span class="marquee__item marquee__item--1">HIGHEST QUALITY</span><span class="marquee__dot">·</span>
+      <span class="marquee__item marquee__item--2">MOST PROTECTIVE</span><span class="marquee__dot">·</span>
+      <span class="marquee__item marquee__item--3">LIGHT WEIGHT</span><span class="marquee__dot">·</span>
     </div>
   </div>
 
@@ -106,6 +119,9 @@ gtag('config', 'G-G02ZZ0PW9D');
         No lacrosse goalie should have to practice afraid of getting seriously hurt. That's the
         problem we're building ROVO to solve — equipment that lets you stop flinching and start playing.
       </p>
+      <div class="story__cta reveal" style="--d:4">
+        <a href="#join" class="btn btn--primary">Get Early Access</a>
+      </div>
     </div>
   </section>
 
@@ -123,7 +139,7 @@ gtag('config', 'G-G02ZZ0PW9D');
         <div class="signup-form__row">
           <input type="text" name="name" id="joinName" placeholder="Full name" required autocomplete="name">
           <input type="email" name="email" id="joinEmail" placeholder="Email address" required autocomplete="email">
-          <input type="tel" name="phone" id="joinPhone" placeholder="Phone number" required autocomplete="tel">
+          <input type="tel" name="phone" id="joinPhone" placeholder="Phone number (optional)" autocomplete="tel">
         </div>
         <button type="submit" id="joinSubmit"><span>Notify Me</span></button>
       </form>
@@ -161,6 +177,28 @@ gtag('config', 'G-G02ZZ0PW9D');
   </footer>
 
 </main>
+
+<!-- ============ STICKY MOBILE CTA ============ -->
+<div class="sticky-cta" id="stickyCta">
+  <a href="#join" class="btn btn--primary sticky-cta__btn">Join the List</a>
+</div>
+
+<!-- ============ SCROLL-TRIGGERED POPUP ============ -->
+<div class="popup-overlay" id="popupOverlay" aria-hidden="true">
+  <div class="popup-modal" role="dialog" aria-modal="true" aria-labelledby="popupTitle">
+    <button type="button" class="popup-close" id="popupClose" aria-label="Close">&times;</button>
+    <p class="eyebrow">DON'T MISS LAUNCH</p>
+    <h3 id="popupTitle">Building the Highest-Quality, Lacrosse Goalie Gear.</h3>
+    <p class="popup-sub">Join the list for early access — no spam, just launch news and drops.</p>
+    <form id="popupForm" class="quick-form quick-form--stacked" novalidate>
+      <input type="text" name="name" id="popupName" placeholder="Full name (optional)" autocomplete="name">
+      <input type="email" name="email" id="popupEmail" placeholder="Email address" required autocomplete="email" inputmode="email">
+      <input type="tel" name="phone" id="popupPhone" placeholder="Phone number (optional)" autocomplete="tel">
+      <button type="submit" id="popupSubmit"><span>Notify Me</span></button>
+    </form>
+    <p class="popup-status" id="popupStatus"></p>
+  </div>
+</div>
 
 <script src="config.js"></script>
 <script src="script.js"></script>
