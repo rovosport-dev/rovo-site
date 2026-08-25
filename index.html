@@ -86,10 +86,6 @@ gtag('config', 'G-G02ZZ0PW9D');
       </form>
       <p class="quick-form__hint reveal" style="--d:3">Takes 5 seconds. No spam — just launch news.</p>
       <p class="quick-form__status" id="heroStatus"></p>
-
-      <div class="hero__actions reveal" style="--d:4">
-        <a href="#request" class="hero__secondary-link">Have a product request instead? →</a>
-      </div>
     </div>
 
     <div class="hero__scrollcue" aria-hidden="true">
@@ -161,28 +157,6 @@ gtag('config', 'G-G02ZZ0PW9D');
     </div>
   </section>
 
-  <!-- ============ REQUEST A PRODUCT ============ -->
-  <section class="request" id="request">
-    <div class="request__inner">
-      <p class="eyebrow">TELL US WHAT YOU NEED</p>
-      <h2>Request a Product.</h2>
-      <p class="request__sub">
-        Struggling with a piece of gear? Something missing from your bag? Tell us what
-        you're dealing with — we're goalies building for goalies, and we want to build it.
-      </p>
-
-      <form id="requestForm" class="signup-form signup-form--stacked">
-        <div class="signup-form__row">
-          <input type="text" name="name" id="reqName" placeholder="Full name" required autocomplete="name">
-          <input type="email" name="email" id="reqEmail" placeholder="Email address" required autocomplete="email">
-        </div>
-        <textarea name="message" id="reqMessage" placeholder="What do you need? Tell us the problem you're trying to solve..." rows="4" required></textarea>
-        <button type="submit" id="reqSubmit"><span>Send Request</span></button>
-      </form>
-      <p class="signup-form__status" id="reqStatus"></p>
-    </div>
-  </section>
-
   <!-- ============ FOOTER ============ -->
   <footer class="footer">
     <img src="assets/images/rovo_wordmark.png" alt="ROVO" class="footer__logo">
@@ -191,28 +165,6 @@ gtag('config', 'G-G02ZZ0PW9D');
   </footer>
 
 </main>
-
-<!-- ============ STICKY MOBILE CTA ============ -->
-<div class="sticky-cta" id="stickyCta">
-  <a href="#join" class="btn btn--primary sticky-cta__btn">Join the List</a>
-</div>
-
-<!-- ============ SCROLL-TRIGGERED POPUP ============ -->
-<div class="popup-overlay" id="popupOverlay" aria-hidden="true">
-  <div class="popup-modal" role="dialog" aria-modal="true" aria-labelledby="popupTitle">
-    <button type="button" class="popup-close" id="popupClose" aria-label="Close">&times;</button>
-    <p class="eyebrow">DON'T MISS LAUNCH</p>
-    <h3 id="popupTitle">Building the Highest-Quality, Lacrosse Goalie Gear.</h3>
-    <p class="popup-sub">Join the list for early access — no spam, just launch news and drops.</p>
-    <form id="popupForm" class="quick-form quick-form--stacked" novalidate>
-      <input type="text" name="name" id="popupName" placeholder="Full name (optional)" autocomplete="name">
-      <input type="email" name="email" id="popupEmail" placeholder="Email address" required autocomplete="email" inputmode="email">
-      <input type="tel" name="phone" id="popupPhone" placeholder="Phone number (optional)" autocomplete="tel">
-      <button type="submit" id="popupSubmit"><span>Notify Me</span></button>
-    </form>
-    <p class="popup-status" id="popupStatus"></p>
-  </div>
-</div>
 
 <script src="config.js"></script>
 <script src="script.js"></script>
