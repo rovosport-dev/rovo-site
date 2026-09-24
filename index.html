@@ -55,7 +55,8 @@ gtag('config', 'G-G02ZZ0PW9D');
 <!-- ============ LOGO ============ -->
 <header class="nav">
   <a href="#top" class="nav__brand">
-    <img src="assets/images/rovo_wordmark.png" alt="ROVO" class="nav__logo">
+    <img src="assets/images/rovo_r_mark.png" alt="" class="nav__logo-mark" aria-hidden="true">
+    <span class="nav__logo-word">ROVO</span>
   </a>
   <a href="#join" class="nav__cta">Join the List</a>
 </header>
@@ -63,7 +64,7 @@ gtag('config', 'G-G02ZZ0PW9D');
 <main id="top">
 
   <!-- ============ HERO ============ -->
-  <section class="hero">
+  <section class="hero" id="join">
     <div class="hero__bg" aria-hidden="true"></div>
     <div class="hero__aura" aria-hidden="true"></div>
     <div class="hero__grid" aria-hidden="true"></div>
@@ -75,14 +76,23 @@ gtag('config', 'G-G02ZZ0PW9D');
         BUILDING THE FUTURE OF<br>
         <span class="hero__title--accent">LACROSSE GOALIE EQUIPMENT.</span>
       </h1>
-      <p class="hero__mission reveal" style="--d:2">
+      <p class="hero__mission hero__mission--full reveal" style="--d:2">
         Built by lacrosse goalies themselves — the ones who actually know the pain points
         of the position. Be first in line when we launch.
       </p>
+      <p class="hero__mission hero__mission--short reveal" style="--d:2">
+        Be first in line when we launch.
+      </p>
 
-      <div class="hero__cta reveal" style="--d:3">
-        <a href="#join" class="btn btn--primary">Join the List</a>
-      </div>
+      <form id="joinForm" class="signup-form hero__form reveal" style="--d:3">
+        <div class="signup-form__row">
+          <input type="text" name="name" id="joinName" placeholder="Full name" required autocomplete="name">
+          <input type="email" name="email" id="joinEmail" placeholder="Email address" required autocomplete="email">
+          <input type="tel" name="phone" id="joinPhone" placeholder="Phone number" required autocomplete="tel">
+        </div>
+        <button type="submit" id="joinSubmit"><span>Notify Me</span></button>
+      </form>
+      <p class="signup-form__status" id="joinStatus"></p>
     </div>
 
     <div class="hero__scrollcue" aria-hidden="true">
@@ -132,31 +142,12 @@ gtag('config', 'G-G02ZZ0PW9D');
     </div>
   </section>
 
-  <!-- ============ JOIN THE LIST ============ -->
-  <section class="join" id="join">
-    <div class="join__inner">
-      <p class="eyebrow">STAY LOCKED IN</p>
-      <h2>Be the First to Know.</h2>
-      <p class="join__sub">
-        Drop your info below to stay updated on news and new equipment as we build it.
-        No spam — just launches, drops, and early access.
-      </p>
-
-      <form id="joinForm" class="signup-form">
-        <div class="signup-form__row">
-          <input type="text" name="name" id="joinName" placeholder="Full name" required autocomplete="name">
-          <input type="email" name="email" id="joinEmail" placeholder="Email address" required autocomplete="email">
-          <input type="tel" name="phone" id="joinPhone" placeholder="Phone number" required autocomplete="tel">
-        </div>
-        <button type="submit" id="joinSubmit"><span>Notify Me</span></button>
-      </form>
-      <p class="signup-form__status" id="joinStatus"></p>
-    </div>
-  </section>
-
   <!-- ============ FOOTER ============ -->
   <footer class="footer">
-    <img src="assets/images/rovo_wordmark.png" alt="ROVO" class="footer__logo">
+    <div class="footer__brand">
+      <img src="assets/images/rovo_r_mark.png" alt="" class="footer__logo-mark" aria-hidden="true">
+      <span class="footer__logo-word">ROVO</span>
+    </div>
     <span>© <span id="year"></span> ROVO Sports. All rights reserved.</span>
     <a href="mailto:rovosport@gmail.com" class="footer__email">rovosport@gmail.com</a>
   </footer>

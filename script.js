@@ -44,29 +44,6 @@
     revealEls.forEach(function (el) { el.classList.add("is-in"); });
   }
 
-  var fadeSections = document.querySelectorAll(".join__inner");
-  if ("IntersectionObserver" in window) {
-    var io2 = new IntersectionObserver(
-      function (entries) {
-        entries.forEach(function (entry) {
-          if (entry.isIntersecting) {
-            entry.target.style.transition =
-              "opacity .8s cubic-bezier(.16,.84,.32,1), transform .8s cubic-bezier(.16,.84,.32,1)";
-            entry.target.style.opacity = "1";
-            entry.target.style.transform = "translateY(0)";
-            io2.unobserve(entry.target);
-          }
-        });
-      },
-      { threshold: 0.12 }
-    );
-    fadeSections.forEach(function (el) {
-      el.style.opacity = "0";
-      el.style.transform = "translateY(30px)";
-      io2.observe(el);
-    });
-  }
-
   /* ---------------------------------------------------------------------
      Shared: submit a form to the Google Sheet endpoint
      --------------------------------------------------------------------- */
