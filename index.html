@@ -80,12 +80,9 @@ gtag('config', 'G-G02ZZ0PW9D');
         of the position. Be first in line when we launch.
       </p>
 
-      <form id="heroQuickForm" class="quick-form reveal" style="--d:3" novalidate>
-        <input type="email" name="email" id="heroEmail" placeholder="Enter your email" required autocomplete="email" inputmode="email">
-        <button type="submit" id="heroSubmit"><span>Notify Me</span></button>
-      </form>
-      <p class="quick-form__hint reveal" style="--d:3">Takes 5 seconds. No spam — just launch news.</p>
-      <p class="quick-form__status" id="heroStatus"></p>
+      <div class="hero__cta reveal" style="--d:3">
+        <a href="#join" class="btn btn--primary">Join the List</a>
+      </div>
     </div>
 
     <div class="hero__scrollcue" aria-hidden="true">
@@ -149,7 +146,7 @@ gtag('config', 'G-G02ZZ0PW9D');
         <div class="signup-form__row">
           <input type="text" name="name" id="joinName" placeholder="Full name" required autocomplete="name">
           <input type="email" name="email" id="joinEmail" placeholder="Email address" required autocomplete="email">
-          <input type="tel" name="phone" id="joinPhone" placeholder="Phone number (optional)" autocomplete="tel">
+          <input type="tel" name="phone" id="joinPhone" placeholder="Phone number" required autocomplete="tel">
         </div>
         <button type="submit" id="joinSubmit"><span>Notify Me</span></button>
       </form>

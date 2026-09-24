@@ -116,7 +116,7 @@
       var name = document.getElementById("joinName").value.trim();
       var email = document.getElementById("joinEmail").value.trim();
       var phone = document.getElementById("joinPhone").value.trim();
-      if (!name || !email) return;
+      if (!name || !email || !phone) return;
 
       submitToSheet(
         "newsletter",
@@ -124,26 +124,6 @@
         document.getElementById("joinStatus"),
         document.getElementById("joinSubmit"),
         function () { joinForm.reset(); }
-      );
-    });
-  }
-
-  /* ---------------------------------------------------------------------
-     Hero quick-capture form (email only — fastest possible path)
-     --------------------------------------------------------------------- */
-  var heroForm = document.getElementById("heroQuickForm");
-  if (heroForm) {
-    heroForm.addEventListener("submit", function (e) {
-      e.preventDefault();
-      var email = document.getElementById("heroEmail").value.trim();
-      if (!email) return;
-
-      submitToSheet(
-        "newsletter",
-        { name: "", email: email, phone: "" },
-        document.getElementById("heroStatus"),
-        document.getElementById("heroSubmit"),
-        function () { heroForm.reset(); }
       );
     });
   }
