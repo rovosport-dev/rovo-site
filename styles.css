@@ -147,7 +147,11 @@ button{ font-family:inherit; cursor:pointer; }
   overflow:hidden;
   background:
     radial-gradient(ellipse 70% 55% at 50% 18%, rgba(255,255,255,0.08), transparent 60%),
-    linear-gradient(180deg, #000000 0%, #030304 55%, #030304 100%);
+    linear-gradient(180deg, rgba(0,0,0,0.74) 0%, rgba(3,3,4,0.84) 55%, rgba(3,3,4,0.95) 100%),
+    url('assets/images/carbon-fiber.jpg');
+  background-repeat: no-repeat, no-repeat, repeat;
+  background-size: auto, auto, 480px 278px;
+  background-position: center, center, center;
 }
 @media (max-width:640px){
   .hero{ min-height:auto; padding:92px 20px 56px; }
@@ -190,14 +194,16 @@ button{ font-family:inherit; cursor:pointer; }
 }
 @keyframes scan{ 0%{ top:10%; opacity:0; } 10%{opacity:.8;} 90%{opacity:.8;} 100%{ top:95%; opacity:0; } }
 
-.hero__content{ position:relative; z-index:2; max-width:820px; }
+.hero__content{ position:relative; z-index:2; max-width:900px; }
 .hero__title{
-  font-size:clamp(36px, 7vw, 64px);
-  line-height:1.1;
+  font-size:clamp(34px, 6.4vw, 60px);
+  line-height:1.15;
+  letter-spacing:0;
   text-transform:uppercase;
+  text-wrap:balance;
 }
 @media (max-width:640px){
-  .hero__title{ font-size:clamp(26px, 8vw, 34px); line-height:1.18; }
+  .hero__title{ font-size:clamp(26px, 8vw, 34px); line-height:1.2; }
   .hero__mission{ font-size:15px; }
 }
 .hero__title--accent{
