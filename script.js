@@ -90,14 +90,12 @@
   if (joinForm) {
     joinForm.addEventListener("submit", function (e) {
       e.preventDefault();
-      var name = document.getElementById("joinName").value.trim();
       var email = document.getElementById("joinEmail").value.trim();
-      var phone = document.getElementById("joinPhone").value.trim();
-      if (!name || !email || !phone) return;
+      if (!email) return;
 
       submitToSheet(
         "newsletter",
-        { name: name, email: email, phone: phone },
+        { email: email },
         document.getElementById("joinStatus"),
         document.getElementById("joinSubmit"),
         function () { joinForm.reset(); }
