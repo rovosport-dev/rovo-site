@@ -66,6 +66,14 @@ img{max-width:100%}
  .nv{font-size:12px}
  header nav{gap:4px 18px!important}
 }
+@media (max-width:700px){
+ header>div{gap:10px 12px!important;padding-top:10px!important;padding-bottom:10px!important}
+ header>div>a[aria-label]{order:1;margin-right:auto}
+ header>div>button[data-open-join]{order:2;height:38px!important;padding:0 14px!important;font-size:14px!important}
+ header nav{order:3;width:100%;flex-wrap:nowrap!important;justify-content:space-between;gap:0 6px!important}
+ header>div>a[aria-label] img{height:16px!important}
+ header .nv{font-size:11px!important;letter-spacing:.02em!important;white-space:nowrap}
+}
 </style>
 
 <script async src="https://www.googletagmanager.com/gtag/js?id=G-G02ZZ0PW9D"></script>
@@ -108,10 +116,21 @@ img{max-width:100%}
 </div>
 </header>
 
-
-
-<section style="max-width:1240px;margin:0 auto;padding:clamp(24px,5vh,56px) 28px 40px;box-sizing:border-box;display:grid;grid-template-columns:minmax(0,1.15fr) minmax(0,.85fr);gap:48px;align-items:center">
-<div><h1 style="font-family:'Barlow Condensed',sans-serif;font-weight:800;font-size:clamp(34px,min(5.4vw,9.5vh),78px);line-height:.92;text-transform:uppercase;margin:0;text-align:left">No athlete should be <span style="color:#2fd8ff">forgotten.</span></h1><div style="margin-top:clamp(18px,4vh,34px);max-width:560px"><div class="hud" style="max-width:600px;margin:0;border:1px solid #243844;background:#0a1116;border-radius:14px;padding:clamp(18px,3vh,26px) clamp(18px,3vw,28px)">
+<style>
+.hero2{position:relative;overflow:hidden;border-bottom:1px solid #16222a}
+.hero2-img{position:absolute;inset:0 0 0 36%;-webkit-mask-image:linear-gradient(90deg,transparent 0,#000 40%);mask-image:linear-gradient(90deg,transparent 0,#000 40%)}
+.hero2-img img{width:100%;height:100%;object-fit:cover;object-position:62% 28%;display:block}
+.hero2-in{position:relative;max-width:1240px;margin:0 auto;padding:clamp(30px,7vh,80px) 28px clamp(40px,8vh,80px);box-sizing:border-box}
+@media (max-width:760px){
+ .hero2-img{inset:0;-webkit-mask-image:linear-gradient(180deg,#000 0,#000 30%,transparent 78%);mask-image:linear-gradient(180deg,#000 0,#000 30%,transparent 78%);opacity:.62}
+ .hero2-img img{object-position:68% 18%}
+ .hero2-in{padding:130px 20px 40px}
+ .hero2 h1{font-size:clamp(40px,12.5vw,60px)!important;text-shadow:0 2px 18px rgba(3,8,12,.8)}
+}
+</style>
+<section class="hero2"><div class="hero2-img"><img src="/assets/img/sam-cooper.jpg" alt="Sam Cooper making a save for Dartmouth" fetchpriority="high"></div>
+<div class="hero2-in"><div style="max-width:700px"><h1 style="font-family:'Barlow Condensed',sans-serif;font-weight:800;font-size:clamp(34px,min(5.6vw,10vh),84px);line-height:.92;text-transform:uppercase;margin:0">No athlete should be <span style="color:#2fd8ff">forgotten.</span></h1>
+<div style="margin-top:clamp(18px,4vh,34px)"><div class="hud" style="max-width:560px;margin:0;border:1px solid #243844;background:#0a1116;border-radius:14px;padding:clamp(18px,3vh,26px) clamp(18px,3vw,28px)">
 <div style="font-family:'JetBrains Mono',monospace;font-size:12px;color:#8ea0aa;letter-spacing:.1em">NEWSLETTER</div>
 <div style="font-family:'Barlow Condensed',sans-serif;font-weight:700;font-size:26px;text-transform:uppercase;margin-top:2px">Join the newsletter</div>
 <div data-state="form">
@@ -121,10 +140,9 @@ img{max-width:100%}
 <div style="margin-top:16px;min-height:48px;display:flex;align-items:center;padding:0 18px;border-radius:10px;border:1px solid #1f6a80;background:rgba(47,216,255,.1);color:#dcf6ff;font-size:16px">You're on the list. We'll keep you posted.</div>
 </div>
 <p style="font-size:13px;color:#8ea0aa;margin:10px 0 0">One email when there's real news. Unsubscribe any time.</p>
-</div></div></div>
-<div><figure style="margin:0"><div class="hud" style="aspect-ratio:4/5;overflow:hidden;border:1px solid #1f2f38;border-radius:6px;background:#000"><img src="/assets/img/sam-cooper.jpg" alt="Sam Cooper making a save for Dartmouth" style="width:100%;height:100%;object-fit:cover;object-position:50% 30%;display:block"></div><div style="font-family:'JetBrains Mono',monospace;font-size:12px;letter-spacing:.06em;color:#9fb0ba;margin-top:12px">SAM COOPER &middot; CO-FOUNDER &middot; FORMER DARTMOUTH D1 GOALIE</div></figure></div></section><section style="max-width:1240px;margin:0 auto;padding:10px 28px 90px;box-sizing:border-box"><div style="font-family:'JetBrains Mono',monospace;font-size:12px;color:#2fd8ff;letter-spacing:.08em">// THE ROVOS BOX</div><div style="height:12px"></div><div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:18px"><figure class="" style="margin:0"><div class="hud" style="aspect-ratio:761/409;overflow:hidden;border:1px solid #1f2f38;border-radius:6px;background:#000"><img src="/assets/img/box-1.jpg" alt="The ROVOS box, angled view" loading="lazy" style="width:100%;height:100%;object-fit:cover;object-position:50% 50%;display:block"></div></figure><figure class="" style="margin:0"><div class="hud" style="aspect-ratio:761/409;overflow:hidden;border:1px solid #1f2f38;border-radius:6px;background:#000"><img src="/assets/img/box-2.jpg" alt="The ROVOS box, front view" loading="lazy" style="width:100%;height:100%;object-fit:cover;object-position:50% 50%;display:block"></div></figure></div></section>
-
-<!-- PROBLEMS WE PLAN TO SOLVE -->
+</div></div></div></div></section>
+<section style="max-width:1240px;margin:0 auto;padding:60px 28px 80px;box-sizing:border-box"><div style="font-family:'JetBrains Mono',monospace;font-size:12px;color:#2fd8ff;letter-spacing:.08em">// THE ROVOS BOX</div><div style="height:12px"></div>
+<div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:18px"><div class="hud" style="border:1px solid #1f2f38;border-radius:10px;overflow:hidden;background:#000"><img src="/assets/img/box-1.jpg" alt="The ROVOS box, angled view" loading="lazy" style="width:100%;display:block"></div><div class="hud" style="border:1px solid #1f2f38;border-radius:10px;overflow:hidden;background:#000"><img src="/assets/img/box-2.jpg" alt="The ROVOS box, front view" loading="lazy" style="width:100%;display:block"></div></div></section><!-- PROBLEMS WE PLAN TO SOLVE -->
 <section style="border-top:1px solid #16222a;background:#080d11">
 <div style="max-width:1240px;margin:0 auto;padding:100px 28px;box-sizing:border-box">
 <div style="display:flex;flex-wrap:wrap;justify-content:space-between;align-items:end;gap:20px;margin-bottom:34px">
